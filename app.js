@@ -54,7 +54,9 @@ function init()
     {
         try
         {
+            // taken from the internet
             displayNumbers = eval(displayElem.textContent);
+            
             displayElem.textContent = displayNumbers;
         }
         catch(error)
