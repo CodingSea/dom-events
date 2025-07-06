@@ -7,6 +7,8 @@ function init()
     let displayNumbers;
     displayElem.textContent = 0;
 
+    let canAddOperator = false;
+
     buttons.forEach((button) => 
     {
         button.addEventListener('click', addToDisplay);
@@ -21,6 +23,7 @@ function init()
             if (event.target.classList.contains('number')) 
             {
                 displayNumbers = event.target.innerText;
+                canAddOperator = true;
             }
         }
         else
@@ -28,11 +31,13 @@ function init()
             if (event.target.classList.contains('number')) 
             {
                 displayNumbers += event.target.innerText;
+                canAddOperator = true;
             }
 
-            if (event.target.classList.contains('operator')) 
+            if (event.target.classList.contains('operator') && canAddOperator == true) 
             {
                 displayNumbers += event.target.innerText;
+                canAddOperator = false;
             }
 
             if(event.target.classList.contains('equals'))
@@ -48,6 +53,7 @@ function init()
     {
         displayNumbers = undefined;
         displayElem.textContent = 0;
+        canAddOperator = false;
     }
 
     function calculate()
