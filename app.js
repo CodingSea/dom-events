@@ -58,6 +58,7 @@ function init()
 
     function calculate()
     {
+        // exception handling was learned form the internet
         try
         {
             // taken from the internet
